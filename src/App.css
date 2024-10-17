@@ -1,0 +1,268 @@
+:root {
+  --page-bg: #f5f1e0;
+  --primary:#3cceae;
+  --button-bg: #20639b;
+  --error: #ed553b;
+  --secondary: #3caea3;
+  --dark-text: #444;
+  --light-text: #fff;
+}
+
+body {
+  background: var(--page-bg);
+  margin: 0;
+  font-size: 16px;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+header {
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+}
+
+header ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+header li {
+  display: inline-block;
+  margin: 0 1rem 0 0;
+  padding: 0;
+}
+
+header a.btn {
+  width: 9rem;
+}
+
+
+.btn {
+  background: var(--button-bg);
+  color: var(--light-text);
+  border: none;
+  border-radius: 1.5rem;
+  padding: 0.5rem 1.5rem;
+  margin-left:0.5rem;
+  font-size: 1rem;
+  transition: all 0.4s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.btn:first-child {
+  margin-left: 0;
+}
+
+a.btn {
+  text-decoration: none;
+  background-color: var(--primary);
+}
+a.active{
+   font-weight: bold; border-color: var(--light-text); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+.btn-delete {
+  background: var(--error);
+  color: white;
+}
+
+.btn > svg:first-child {
+  margin-right: 0.4rem;
+}
+
+.btn > svg:last-child {
+  margin-left: 0.4rem;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.btn-header {
+  background: var(--primary);
+  
+}
+
+.btn-header:hover {
+  background-color:var(--secondary);
+}
+
+main {
+  margin: 40px auto;
+  display: grid;
+}
+
+.bookings-page {
+  grid-template-columns: 1fr 5fr;
+  grid-column-gap: 20px;
+  margin: 40px 20px;
+}
+
+.bookables-page,
+.users-page {
+  /* max-width: 70em; */
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 40px;
+}
+
+.item-header{
+  background-color: #3caea3; overflow: hidden; padding: 0.1em; padding-left: 10px !important;
+}
+.item-header h2{
+  float: left;
+}
+.item-header span{
+  float: right; right: 10px; padding: 1em;
+}
+.items-list-nav {
+  margin: 1rem auto;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+}
+
+.items-list-nav > li {
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.items-list-nav .btn {
+  width: 100%;
+  padding: 1em 0;
+  background: var(--light-text);
+  color: var(--dark-text);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.items-list-nav a {
+  display: block;
+  padding: 1em 2em;
+  text-decoration: none;
+}
+
+.items-list-nav .btn:hover {
+  font-weight: bold;
+  cursor: pointer;
+  border: 1px solid var(--primary);
+}
+
+.items-list-nav .selected .btn {
+  font-weight: bold;
+  background: var(--primary);
+  color: var(--light-text);
+}
+.bookable-menu{
+  float: left
+}
+.bookable-details{
+  text-align: left; 
+}
+.bookable-availability{
+  border-top: 1px solid #3caea3;
+}
+.bookable-availability ul{
+  float: left; width: 30%; 
+}
+.bookable-availability li{
+  list-style-type: disc;
+}
+
+.bookings {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  grid-column-gap: 20px;
+}
+.bookingsError {
+  background: var(--error);
+  color: var(--page-bg);
+  padding: 1em;
+  margin:0;
+}
+.bookingsGrid {
+  width: 100%;
+  border-collapse: collapse;
+}
+.bookingsGrid th,
+.bookingsGrid td {
+  padding:0.5em;
+  border:1px solid var(--page-bg);
+  height:5em;
+}
+.bookingsGrid th {
+  background: var(--primary);
+  color:var(--light-text);
+}
+.bookingsGrid td {
+  background:var(--light-text);
+  transition: opacity 0.4s ease;
+  opacity: 0.5;
+}
+.bookingsGrid.active td {
+  color:var(--dark-text);
+  opacity: 1;
+}
+.bookingsGrid thead th {
+  border-top:none;
+  border-bottom:none;
+}
+.bookingsGrid th:first-child,
+.bookingsGrid th:last-child {
+  border-left:none;
+  border-right:none;
+}
+.bookingsGrid.active td:hover {
+  cursor: pointer;
+  background:#eee;
+}
+.bookingsGrid.active .selected {
+  background: var(--secondary);
+  color:var(--light-text);
+}
+.bookingsGrid.active td.selected:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+.bookingsGrid .status {
+  font-size: 200%;
+}
+.booking-details .icon-loading {
+  font-size: 100%;
+  margin-right: 0.5em;
+}
+.grid-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 600px;
+  overflow:auto;
+}
+
+.grid {
+  position: absolute;
+  width: 100%;
+}
+
+.status {
+  transition: opacity 300ms;
+  transition-delay: 100ms;
+  opacity: 1;
+}
+
+.active .status {
+  opacity: 0;
+}
+
+.placeholder {
+  background:#eee;
+  padding:2rem;
+}
+.booking-details-fields label{
+  font-weight: bold; color: #20639b;
+}
